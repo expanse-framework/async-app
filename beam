@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+import asyncio
+import sys
+
+from app.app import app
+from cleo.io.inputs.argv_input import ArgvInput
+
+
+if __name__ == "__main__":
+    status = asyncio.run(app.handle_command(ArgvInput().set_stream(sys.stdin)))
+    sys.exit(status)
